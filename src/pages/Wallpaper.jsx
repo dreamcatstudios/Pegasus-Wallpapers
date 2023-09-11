@@ -19,7 +19,7 @@ const Wallpaper = () => {
     const sortedData = [...data].sort((a, b) => b.likes - a.likes);
     setData(sortedData);
   };
-
+ 
   // Use useEffect to update data when apiData changes
   useEffect(() => {
     setData([...apiData]);
