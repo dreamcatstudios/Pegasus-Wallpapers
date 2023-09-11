@@ -5,21 +5,6 @@ import { Link } from "react-router-dom";
 const About = () => {
   return (
     <>
-      <header className="secondary--header">
-        <nav>
-          {/* <img src="" alt="" /> */}
-          <Link to={"/"}>
-            <a style={{ color: "black" }} href="#">
-              Home
-            </a>
-          </Link>
-          <Link to={"/about"}>
-            <a style={{ color: "black" }} href="#">
-              About
-            </a>
-          </Link>
-        </nav>
-      </header>
       <div className="about-container">
         <div className="text-container">
           <h1>Pegasus Wallpaper App Made by</h1>
