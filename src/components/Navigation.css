@@ -1,0 +1,162 @@
+/* Navigation Styles */
+
+.main-header {
+  padding: 0 2em;
+  font-size: 0.85em;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white; /* Set your desired link color */
+  margin-right: 20px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  align-items: center;
+}
+
+a {
+  font-size: 1.35rem;
+}
+
+.auth-button {
+  background-color: white; /* Set your desired button color */
+  color: black; /* Set your desired text color */
+  border: none;
+  padding: 10px 50px;
+  cursor: pointer;
+  border: 0;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 5px;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide any overflowing text */
+  text-overflow: ellipsis; /* Display ellipsis (...) for long text */
+}
+
+.mobile-background-blur.open {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: all 0.15s ease-in;
+}
+
+.mobile-menu {
+  height: 100vh;
+  width: 0; /* Start with a width of 0 to hide the mobile menu */
+  background-color: black;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 99;
+  transition: all 0.15s ease-in-out; /* Add a smooth transition effect */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.mobile-menu.open {
+  width: 80%; /* Set the width to show the mobile menu */
+  transition: all 0.15 ease-out;
+}
+
+.mobile-menu-container {
+  width: 100%;
+  margin-top: 7em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-profile-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 20px;
+}
+
+.user-profile {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  border: 2px solid white; /* Add a border style */
+  overflow: hidden; /* Hide overflowing content */
+}
+
+.user-profile img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.mobile-menu-options {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  text-align: center;
+}
+
+.menu-back-conatiner {
+  width: 100%;
+  position: relative;
+  background-color: green;
+}
+
+.menu-back-container {
+  position: relative;
+}
+
+.back-button-mobile {
+  position: absolute;
+  right: 0;
+  padding: 1em 5em;
+}
+
+.menu-icon {
+  display: none;
+}
+
+.auth-button-mobile {
+  border: 0;
+  border-radius: 10px;
+  font-size: 1em;
+  background-color: black;
+  color: white;
+  white-space: nowrap;
+}
+
+/* Media query for screens with a maximum width of 767px (mobile) */
+@media screen and (max-width: 767px) {
+  /* Additional styles for mobile */
+
+  /* Show the menu icon on mobile devices */
+  .menu-icon {
+    display: block;
+  }
+
+  .menu-icon i {
+    display: block;
+  }
+
+  .nav-link {
+    display: none;
+  }
+
+  .auth-button {
+    display: none;
+  }
+}
+
+/* Media query for screens with a minimum width of 768px (larger screens) */
+@media screen and (min-width: 768px) {
+  /* Hide the menu icon on larger screens */
+  .menu-icon i {
+    display: none;
+  }
+}
