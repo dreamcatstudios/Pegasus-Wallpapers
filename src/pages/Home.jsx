@@ -10,6 +10,7 @@ const Home = () => {
   const { isAuthenticated, user } = useAuth0();
   const [query, setQuery] = useState(""); // State for the search query
   const { searchData, setSearchData } = useContext(SearchContext);
+  const [rateLimit, setRateLimit] = useState(null); // State for rate limit statistics
 
   const handleSearch = async () => {
     try {
@@ -19,14 +20,24 @@ const Home = () => {
         {
           headers: {
             Authorization:
-              "Bearer 7Vlbp8kYvE0Htdlte6Vkcp2LaNMLW3h40OT4wwUmJziNAplL6OBY1Dnq", // Added "Bearer " prefix to the token
+              "Bearer 7Vlbp8kYvE0Htdlte6Vkcp2LaNMLW3h40OT4wwUmJziNAplL6OBY1Dnq", // Replace with your actual API key
           },
         }
       );
 
       // Set the search results in state
-
       setSearchData(response.data.photos);
+
+      // Get and set rate limit statistics from response headers
+      const rateLimitLimit = response.headers["x-ratelimit-limit"];
+      const rateLimitRemaining = response.headers["x-ratelimit-remaining"];
+      const rateLimitReset = response.headers["x-ratelimit-reset"];
+
+      setRateLimit({
+        limit: rateLimitLimit,
+        remaining: rateLimitRemaining,
+        reset: rateLimitReset,
+      });
     } catch (error) {
       console.error("Error searching for photos:", error);
     }
@@ -54,6 +65,18 @@ const Home = () => {
                   </button>
                 </Link>
               </div>
+              {rateLimit && (
+                <div className="rate-limit-info">
+                  <p>
+                    Requests Remaining: {rateLimit.remaining} /{" "}
+                    {rateLimit.limit}
+                  </p>
+                  <p>
+                    Next Reset:{" "}
+                    {new Date(rateLimit.reset * 1000).toLocaleString()}
+                  </p>
+                </div>
+              )}
             </>
           ) : (
             <>
