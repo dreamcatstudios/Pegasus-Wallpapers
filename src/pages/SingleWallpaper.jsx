@@ -30,6 +30,7 @@ const SingleWallpaper = () => {
   useEffect(() => {
     const filteredData = apiData.filter((item) => item.title === title);
     console.log("FILTERED DATA", filteredData);
+    console.log("Author", filteredData[0].author.replace(" ", "-"));
     if (filteredData.length > 0) {
       setNewData(filteredData);
     } else {
@@ -62,7 +63,17 @@ const SingleWallpaper = () => {
             <div className="box" key={idx}>
               <div className="nav">
                 <div className="about--creator">
-                  <div className="creator--image"></div>
+                  <div className="creator--image">
+                    {item.author && (
+                      <img
+                        src={`https://ui-avatars.com/api/?name=${item.author.replace(
+                          " ",
+                          "-"
+                        )}`}
+                        alt=""
+                      />
+                    )}
+                  </div>
                   <div className="creator--info">
                     <h2>{item.author}</h2>
                     <h4>Follow</h4>

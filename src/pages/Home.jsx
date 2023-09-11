@@ -1,16 +1,42 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Home.css";
 import Navigation from "../components/Navigation";
 import { useAuth0 } from "@auth0/auth0-react";
+import axios from "axios"; // Import Axios
+import SearchContext from "../context/SearchContext";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const { isAuthenticated, user } = useAuth0();
+  const [query, setQuery] = useState(""); // State for the search query
+  const { searchData, setSearchData } = useContext(SearchContext);
+
+  const handleSearch = async () => {
+    try {
+      // Make a request to the Pexels API with your API key and the user's query
+      const response = await axios.get(
+        `https://api.pexels.com/v1/search?query=${query}&per_page=10`,
+        {
+          headers: {
+            Authorization:
+              "Bearer 7Vlbp8kYvE0Htdlte6Vkcp2LaNMLW3h40OT4wwUmJziNAplL6OBY1Dnq", // Added "Bearer " prefix to the token
+          },
+        }
+      );
+
+      // Set the search results in state
+
+      setSearchData(response.data.photos);
+    } catch (error) {
+      console.error("Error searching for photos:", error);
+    }
+  };
 
   return (
     <div className="hero--section">
       <Navigation />
       <div className="center--container">
-        <div className={`center--wrap ${isAuthenticated} ? "nologin" : "" `}>
+        <div className={`center--wrap ${isAuthenticated ? "nologin" : ""}`}>
           {isAuthenticated ? (
             <>
               <h1 className="h1-login">Pegasus Wallpapers</h1>
@@ -19,10 +45,14 @@ const Home = () => {
                   className="search--box"
                   type="text"
                   placeholder="Search for Photos"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
                 />
-                <button>
-                  <p>Search</p>
-                </button>
+                <Link to={"/search"}>
+                  <button className="search--button" onClick={handleSearch}>
+                    Search
+                  </button>
+                </Link>
               </div>
             </>
           ) : (
