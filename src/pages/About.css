@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 25px;
+  gap: 5px;
   overflow: scroll;
   background-image: url("https://images.pexels.com/photos/1933320/pexels-photo-1933320.jpeg");
   background-size: cover;
@@ -21,6 +21,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 1em;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
 }
 
