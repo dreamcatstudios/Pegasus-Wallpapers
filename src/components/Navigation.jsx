@@ -88,7 +88,10 @@ const Navigation = () => {
         )}
 
         {/* Mobile Menu */}
-        <div className={`mobile-background-blur ${menuOpen ? "open" : ""}`}>
+        <div
+          onClick={toggleMenu}
+          className={`mobile-background-blur ${menuOpen ? "open" : ""}`}
+        >
           <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
             <div className="mobile-profile-container">
               <div className="user-profile">
@@ -131,12 +134,6 @@ const Navigation = () => {
                     Log In
                   </div>
                 )}
-
-                <div className="menu-back-container">
-                  <button className="back-button-mobile" onClick={toggleMenu}>
-                    Go Back
-                  </button>
-                </div>
               </div>
             </div>
           </div>
