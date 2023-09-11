@@ -44,6 +44,12 @@ const Navigation = () => {
             </Link>
           )}
 
+          <Link to={"/about"}>
+            <a href="#" aria-label="About" className="nav-link">
+              About
+            </a>
+          </Link>
+
           {isAuthenticated ? (
             <Link to={"/wallpaper"}>
               <a href="#" aria-label="Wallpaper" className="nav-link">
@@ -100,7 +106,7 @@ const Navigation = () => {
                   src={
                     user && user.picture && user.picture
                       ? user.picture
-                      : "../assets/react.svg"
+                      : "https://api.dicebear.com/7.x/adventurer/svg?seed=Angel"
                   }
                   alt="User Profile"
                 />
