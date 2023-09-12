@@ -20,7 +20,7 @@ const Home = () => {
         {
           headers: {
             Authorization:
-              "Bearer 7Vlbp8kYvE0Htdlte6Vkcp2LaNMLW3h40OT4wwUmJziNAplL6OBY1Dnq", // Replace with your actual API key
+              "Bearer fjALBxJRGhhMIh3bDsrd9MJLnp2fKLcSU2TVSagBp2Ijnh4YINRjOhqL", // Replace with your actual API key
           },
         }
       );
