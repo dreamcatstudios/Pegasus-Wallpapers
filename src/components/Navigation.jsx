@@ -117,7 +117,9 @@ const Navigation = () => {
             </div>
             <div className="mobile-menu-container">
               <div className="mobile-menu-options">
-                <a href="#">About</a>
+                <Link to={"/about"}>
+                  <a href="#">About</a>
+                </Link>
                 <Link to={"/wallpaper"}>
                   {" "}
                   <a href="#">Wallpapers</a>

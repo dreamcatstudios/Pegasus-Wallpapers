@@ -37,12 +37,16 @@ nav a {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
 }
 
-.center--container button {
+.search--button {
+  background-color: white;
+  text-decoration: none;
   padding: 1em 5em;
   border-radius: 50px;
-  font-size: 1em;
+  font-size: 0.85em;
   border: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
+  color: black;
+
 }
 
 .center--container {
@@ -75,13 +79,8 @@ nav {
   color: white;
   padding-top: 1em;
 }
-button {
-  padding: 1em 0;
-  width: 1.6em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
+
 #suggestion {
   position: relative;
   height: 20%;
@@ -113,6 +112,7 @@ button {
     width: 80%;
   }
   button {
+    text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -153,6 +153,7 @@ button {
     align-items: center;
   }
   button {
+    text-decoration: none;
     position: relative;
     top: 10px;
   }

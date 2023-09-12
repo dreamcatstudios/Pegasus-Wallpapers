@@ -4,7 +4,6 @@ import "./Card.css";
 import { Link } from "react-router-dom";
 
 const Card = (props) => {
-
   return (
     <div className="grid-container">
       {props.data.map((item, index) => (
@@ -13,7 +12,13 @@ const Card = (props) => {
             <img src={item.image_url} alt="" loading="lazy" />
             <div className="container-about">
               <div className="author-profile">
-                <img src={item.image_url} alt="" />
+                <img
+                  src={`https://ui-avatars.com/api/?name=${item.author.replace(
+                    " ",
+                    "-"
+                  )}`}
+                  alt=""
+                />
               </div>
               <div className="author-about">
                 <h3>{item.author}</h3>

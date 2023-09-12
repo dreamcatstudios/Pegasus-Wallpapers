@@ -5,6 +5,7 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { GlobalAppProvider } from "./context/GlobalContext.jsx";
 import { Auth0Provider } from "@auth0/auth0-react";
+import { SearchContextProvider } from "./context/SearchContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -16,9 +17,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       }}
     >
       <GlobalAppProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <SearchContextProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </SearchContextProvider>
       </GlobalAppProvider>
     </Auth0Provider>
   </React.StrictMode>

@@ -1,12 +1,16 @@
 import React, { useState, useContext, useEffect } from "react";
-import Card from "../components/Card";
-import "./Wallpaper.css";
-import { Link } from "react-router-dom";
-import GlobalAppContext from "../context/GlobalContext";
 
-const Wallpaper = () => {
-  const apiData = useContext(GlobalAppContext);
-  const [data, setData] = useState([...apiData]);
+import { Link } from "react-router-dom";
+import SearchContext from "../context/SearchContext";
+import CardSearch from "../components/CardSearch";
+
+const SearchPage = () => {
+  const { searchData } = useContext(SearchContext);
+  const [data, setData] = useState([...searchData]);
+
+  useEffect(() => {
+    console.log("SEARCH DATA: ", searchData);
+  }, [searchData]);
 
   const byDate = () => {
     const sortedData = [...data].sort(
@@ -19,11 +23,11 @@ const Wallpaper = () => {
     const sortedData = [...data].sort((a, b) => b.likes - a.likes);
     setData(sortedData);
   };
- 
+
   // Use useEffect to update data when apiData changes
   useEffect(() => {
-    setData([...apiData]);
-  }, [apiData]);
+    setData([...searchData]);
+  }, [searchData]);
 
   return (
     <>
@@ -61,9 +65,9 @@ const Wallpaper = () => {
           <option value="bySize">By Popularity</option>
         </select>
       </div>
-      <Card data={data} />
+      <CardSearch data={data} />
     </>
   );
 };
 
-export default Wallpaper;
+export default SearchPage;
