@@ -70,3 +70,15 @@ img {
   display: flex;
   gap: 10px;
 }
+
+@media screen and (max-width: 768px) {
+  .text-container{
+    
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .text-container{
+    color: black;
+  }
+}
