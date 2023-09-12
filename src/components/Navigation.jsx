@@ -13,7 +13,7 @@ const Navigation = () => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-
+  
   useEffect(() => {
     console.log("isAuthenticated:", isAuthenticated, "user: ", user);
   }, [isAuthenticated]);
